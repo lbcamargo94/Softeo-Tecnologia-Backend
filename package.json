@@ -1,0 +1,11 @@
+{
+  "name": "Softeo-Tecnologia-Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lbcamargo94/Softeo-Tecnologia-Backend.git",
+  "author": "Lucas Camargo <lb.camargo94@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}

@@ -21,6 +21,7 @@ Tecnologias:
 - Sequelize
 - Express
 - Nodemon
+- Sucrase
 - @types/node
 - Docker
 - Mysql2
