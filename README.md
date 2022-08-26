@@ -27,6 +27,7 @@ Tecnologias:
 - Mysql2
 - Eslint
 - dotenv
+- cors
 
 
 ===============================================
