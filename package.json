@@ -5,6 +5,10 @@
   "repository": "git@github.com:lbcamargo94/Softeo-Tecnologia-Backend.git",
   "author": "Lucas Camargo <lb.camargo94@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": ""
+  },
   "devDependencies": {
     "nodemon": "^2.0.19",
     "sucrase": "^3.25.0",
