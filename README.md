@@ -1,4 +1,5 @@
 # Softeo-Tecnologia-Backend
+
 Odonto-Customer-Management-Backend
 
 ===============================================
@@ -16,6 +17,7 @@ Tecnologias:
 Backend:
 
 Tecnologias:
+
 - Typescript
 - Node.js
 - Sequelize
@@ -29,15 +31,16 @@ Tecnologias:
 - dotenv
 - cors
 
-
 ===============================================
 
 Testes:
 
 Tecnologias:
+
 - Jest
 
 Tipos de test:
+
 - Teste de integração
 - Teste unitário
 
@@ -46,6 +49,7 @@ Tipos de test:
 Frontend:
 
 Tecnologias:
+
 - React
 - React Bootstrap
 - Fetch
@@ -57,9 +61,11 @@ Tecnologias:
 ===============================================
 
 Git:
+
 - Covencional Commits
 
 ===============================================
 
 Design Patterns:
+
 - Athomic design
