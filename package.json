@@ -6,10 +6,11 @@
   "author": "Lucas Camargo <lb.camargo94@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon -r tsconfig-paths/register --respawn --watch \"./src/**\" ./src/server.ts",
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "dev": "nodemon -r tsconfig-paths/register --respawn --watch \"./src/**\" ./src/server.ts",
     "eslint": "eslint 'src/**/*.ts'",
-    "prettier": "prettier 'src/**/*.ts'"
+    "prettier": "prettier 'src/**/*.ts'",
+    "start": "node ."
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
