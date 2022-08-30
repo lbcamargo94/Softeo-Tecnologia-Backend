@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es6"],
+    "module": "commonjs",
+    "outDir": "./dist",
+    "paths": {
+      "@controllers/*": ["./src/controllers/*"],
+      "@middlewares/*": ["./src/models/*"],
+      "@services/*": ["./src/models/*"],
+      "@models/*": ["./src/models/*"],
+      "@views/*": ["./src/views/*"],
+      "@config/*": ["./src/config/*"]
+    },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2017",
+    "typeRoots": ["./node_modules/@types", "./src/@types"]
+  },
+  "include": ["src/**/*"]
+}
