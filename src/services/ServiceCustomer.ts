@@ -7,7 +7,7 @@ class ServiceCustomer {
     this.modelCustomer = Customer;
   }
 
-  public async saveCustomer(customer: Customer) {
+  public async createCustomer(customer: Customer) {
     const result = await this.modelCustomer.create({ customer });
 
     return { status: 201, message: result };

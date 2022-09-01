@@ -4,7 +4,6 @@ import Treatment from './Treatment';
 
 class Purchase extends Model {
   private id: number;
-  // private treatmentId: number;
   private paymantType: string;
   private purchaseDate: Date;
   private totalInstallments: number;

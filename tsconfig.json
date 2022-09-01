@@ -22,9 +22,10 @@
     "rootDir": "./src",
     "skipLibCheck": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "target": "es2017",
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "include": ["src/**/*"],
-  "exclude": ["src/database"]
+  // "exclude": ["src/database"]
 }
