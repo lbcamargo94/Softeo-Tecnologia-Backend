@@ -15,7 +15,7 @@
       "@services/*": ["./src/models/*"],
       "@models/*": ["./src/models/*"],
       "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"]
+      "@config/*": ["src/database/config/*"]
     },
     "removeComments": true,
     "resolveJsonModule": true,
