@@ -1,8 +1,27 @@
 const path = require('path');
 
 module.exports = {
-  'config': path.resolve('src', 'database', 'config', 'config.ts'),
-  'models-path': path.resolve('src', 'database', 'models'),
-  'seeders-path': path.resolve('src', 'database', 'seeders'),
-  'migrations-path': path.resolve('src', 'database', 'migrations'),
+  development: {
+    'config': path.resolve('src', 'database', 'config', 'config.ts'),
+    'models-path': path.resolve('src', 'database', 'models'),
+    'seeders-path': path.resolve('src', 'database', 'seeders'),
+    'migrations-path': path.resolve('src', 'database', 'migrations'),
+  },
+  // test: {
+  //   username: process.env.DB_USER,
+  //   password: process.env.DB_PWD,
+  //   database: process.env.DB_NAME,
+  //   host: process.env.DB_HOST,
+  //   port: process.env.DB_PORT,
+  //   dialect: process.env.DB_DIALECT,
+  //   logging: true
+  // },
+  // production: {
+  //   username: process.env.DB_USER,
+  //   password: process.env.DB_PWD,
+  //   database: process.env.DB_NAME,
+  //   host: process.env.DB_HOST,
+  //   port: process.env.DB_PORT,
+  //   dialect: process.env.DB_DIALECT
+  // }
 };
