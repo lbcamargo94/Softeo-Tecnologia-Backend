@@ -67,4 +67,4 @@ Purchase.init(
 
 export default Purchase;
 
-Purchase.belongsTo(Treatment, { foreignKey: 'treatmentId', as: 'id' });
+Purchase.hasOne(Treatment, { foreignKey: 'treatment_id', as: 'id' });
