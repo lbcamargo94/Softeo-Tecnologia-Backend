@@ -13,6 +13,7 @@ module.exports = {
       fullName: {
         allowNull: false,
         type: Sequelize.STRING(50),
+        field: 'full_name',
       },
       email: {
         allowNull: false,
@@ -23,10 +24,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(14),
         unique: true,
+        field: 'phone_number',
       },
       cpf: {
         allowNull: false,
-        type: Sequelize.INTEGER(8),
+        type: Sequelize.STRING(11),
         unique: true,
       },
       address: {

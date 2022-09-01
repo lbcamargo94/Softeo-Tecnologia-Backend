@@ -12,24 +12,24 @@ module.exports = {
       },
       customerId: {
         allowNull: false,
-        field: "customer_id",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-        references: {
-          model: "customers",
-          key: "id",
-        },
+        // field: "customer_id",
+        // onDelete: "CASCADE",
+        // onUpdate: "CASCADE",
+        // references: {
+        //   model: "customers",
+        //   key: "id",
+        // },
         type: Sequelize.INTEGER,
       },
       purchaseId: {
         allowNull: false,
-        field: "purchase_id",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-        references: {
-          model: "purchases",
-          key: "id",
-        },
+        // field: "purchase_id",
+        // onDelete: "CASCADE",
+        // onUpdate: "CASCADE",
+        // references: {
+        //   model: "purchases",
+        //   key: "id",
+        // },
         type: Sequelize.INTEGER,
       },
       paymantValue: {

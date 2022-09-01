@@ -7,12 +7,12 @@
   "license": "MIT",
   "scripts": {
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "db:migrate": "npx sequelize db:migrate",
-    "db:seed": "npx sequelize db:seed:all",
-    "dev": "nodemon -r tsconfig-paths/register --respawn --watch \"./src/**\" ./src/server.ts",
+    "predev": "npm run build",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
     "eslint": "eslint 'src/**/*.ts'",
     "prettier": "prettier 'src/**/*.ts'",
-    "start": "node ."
+    "start": "node server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
