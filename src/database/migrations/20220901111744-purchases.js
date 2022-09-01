@@ -13,11 +13,11 @@ module.exports = {
       treatmentId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        // field: 'treatment_id',
+        field: 'treatment_id',
         // onUpdate: 'CASCADE',
         // onDelete: 'CASCADE',
         // references: {
-        //   model: 'treatments',
+        //   model: 'Treatment',
         //   key: 'id',
         // },
       },
