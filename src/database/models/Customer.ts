@@ -6,7 +6,7 @@ class Customer extends Model {
   private fullName: string;
   private email: string;
   private phoneNumber: string;
-  private cpf: number;
+  private cpf: string;
   private address: string;
 
   get customerData() {
@@ -58,6 +58,7 @@ Customer.init(
     underscored: true,
     sequelize: db,
     modelName: 'Customer',
+    tableName: 'customers',
     timestamps: false,
   },
 );

@@ -8,7 +8,7 @@
   "scripts": {
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
     "predev": "npm run build",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
     "eslint": "eslint 'src/**/*.ts'",
     "prettier": "prettier 'src/**/*.ts'",

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import Customer from 'src/database/models/Customer';
-import ServiceCustomer from 'src/services/ServiceCustomer';
+import ServiceCustomer from '../services/ServiceCustomer';
+import custumoer from '../@types/TypeCustomer';
 
 class ConstrollerCustommer {
   private serviceCustommer: ServiceCustomer;
@@ -9,13 +9,23 @@ class ConstrollerCustommer {
     this.serviceCustommer = new ServiceCustomer();
   }
 
-  public createCustomer = async (req: Request, res: Response): Promise<Response | void> => {
+  public getAllCustommer = async (req: Request, res: Response): Promise<Response | void> => {
     try {
-      const customer = req.body;
-      const result = await this.serviceCustommer.createCustomer({ ...customer } as Customer);
-
+      const result = await this.serviceCustommer.getAll();
       return res.status(result.status).json(result.message);
     } catch (error) {
+      console.log(error);
+      return res.status(401).json(error);
+    }
+  };
+
+  public createCustomer = async (req: Request, res: Response): Promise<Response | void> => {
+    try {
+      const newCustomer = req.body;
+      const result = await this.serviceCustommer.createCustomer({ ...newCustomer } as custumoer);
+      return res.status(result.status).json(result.message);
+    } catch (error) {
+      console.log(error);
       return res.status(401).json(error);
     }
   };

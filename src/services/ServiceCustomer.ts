@@ -1,4 +1,5 @@
 import Customer from '../database/models/Customer';
+import customer from '../@types/TypeCustomer';
 
 class ServiceCustomer {
   private modelCustomer;
@@ -7,8 +8,14 @@ class ServiceCustomer {
     this.modelCustomer = Customer;
   }
 
-  public async createCustomer(customer: Customer) {
-    const result = await this.modelCustomer.create({ customer });
+  public async getAll() {
+    const result = await this.modelCustomer.findAll();
+
+    return { status: 200, message: result };
+  }
+
+  public async createCustomer(customer: customer) {
+    const result = await this.modelCustomer.create(customer);
 
     return { status: 201, message: result };
   }

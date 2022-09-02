@@ -8,6 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es6"],
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
@@ -21,11 +22,15 @@
     "resolveJsonModule": true,
     "rootDir": "./src",
     "skipLibCheck": true,
+    "sourceMap": true,  
     "strict": true,
     "strictPropertyInitialization": false,
-    "target": "es2017",
+    "target": "es2019",
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
   "include": ["src/**/*"],
-  // "exclude": ["src/database"]
+  "exclude": [
+    "build",
+    "node_modules"
+]
 }
