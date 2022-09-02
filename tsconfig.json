@@ -8,6 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es6"],
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
@@ -15,15 +16,21 @@
       "@services/*": ["./src/models/*"],
       "@models/*": ["./src/models/*"],
       "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"]
+      "@config/*": ["src/database/config/*"]
     },
     "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "./src",
     "skipLibCheck": true,
+    "sourceMap": true,  
     "strict": true,
-    "target": "es2017",
+    "strictPropertyInitialization": false,
+    "target": "es2019",
     "typeRoots": ["./node_modules/@types", "./src/@types"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "build",
+    "node_modules"
+]
 }
