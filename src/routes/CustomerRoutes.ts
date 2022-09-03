@@ -22,7 +22,7 @@ Route.post(
   phoneNumberValidation,
   cpfValidation,
   addressValidation,
-  customer.createCustomer,
+  customer.createNewCustomer,
 );
 
 Route.patch('/customer/:id');

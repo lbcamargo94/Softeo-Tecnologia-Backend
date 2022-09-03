@@ -1,5 +1,7 @@
 import Customer from '../database/models/Customer';
 import TypesCustomer from '../@types/TypeCustomer';
+import { ConflictError } from '../helpers/ApiErrors';
+import { Op } from 'sequelize';
 
 class CustomerService {
   private modelCustomer;
@@ -13,8 +15,18 @@ class CustomerService {
     return { status: 200, message: result };
   }
 
-  public async createCustomer(newCustomer: TypesCustomer) {
+  public async createNewCustomer(newCustomer: TypesCustomer) {
+    const { email, cpf } = newCustomer;
+    const customer = await this.modelCustomer.findOne({
+      where: { [Op.or]: [{ email }, { cpf }] },
+    });
+
+    if (customer) {
+      throw new ConflictError('Customer already exists');
+    }
+
     const result = await this.modelCustomer.create(newCustomer);
+
     return { status: 201, message: result };
   }
 }

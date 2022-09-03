@@ -14,9 +14,9 @@ class ConstrollerCustommer {
     return res.status(result.status).json(result.message);
   };
 
-  public createCustomer = async (req: Request, res: Response): Promise<Response | void> => {
+  public createNewCustomer = async (req: Request, res: Response): Promise<Response | void> => {
     const newCustomer = req.body;
-    const result = await this.serviceCustommer.createCustomer({ ...newCustomer } as TypesCustomer);
+    const result = await this.serviceCustommer.createNewCustomer({ ...newCustomer } as TypesCustomer);
     return res.status(result.status).json(result.message);
   };
 }
