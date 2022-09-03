@@ -25,4 +25,8 @@ Route.post(
   customer.createCustomer,
 );
 
+Route.patch('/customer/:id');
+
+Route.delete('/customer/:id');
+
 export default Route;
