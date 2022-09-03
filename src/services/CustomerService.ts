@@ -1,24 +1,22 @@
 import Customer from '../database/models/Customer';
-import customer from '../@types/TypeCustomer';
+import TypesCustomer from '../@types/TypeCustomer';
 
-class ServiceCustomer {
+class CustomerService {
   private modelCustomer;
 
   constructor() {
     this.modelCustomer = Customer;
   }
 
-  public async getAll() {
+  public async getAllCustomer() {
     const result = await this.modelCustomer.findAll();
-
     return { status: 200, message: result };
   }
 
-  public async createCustomer(customer: customer) {
-    const result = await this.modelCustomer.create(customer);
-
+  public async createCustomer(newCustomer: TypesCustomer) {
+    const result = await this.modelCustomer.create(newCustomer);
     return { status: 201, message: result };
   }
 }
 
-export default ServiceCustomer;
+export default CustomerService;
