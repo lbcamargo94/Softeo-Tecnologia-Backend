@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { Router } from 'express';
-import ConstrollerCustommer from '../controllers/CustomerController';
+import CustommerConstroller from '../controllers/CustomerController';
 import {
   nameValidation,
   emailValidation,
@@ -9,7 +9,7 @@ import {
   addressValidation,
 } from '../middlewares/CustomerValidation';
 
-const customer = new ConstrollerCustommer();
+const customer = new CustommerConstroller();
 
 const Route = Router();
 
@@ -25,8 +25,16 @@ Route.post(
   customer.createNewCustomer,
 );
 
-Route.patch('/customer/:id');
+Route.patch(
+  '/customer/:id',
+  nameValidation,
+  emailValidation,
+  phoneNumberValidation,
+  cpfValidation,
+  addressValidation,
+  customer.updateCustomerById,
+);
 
-Route.delete('/customer/:id');
+Route.delete('/customer/:id', emailValidation, cpfValidation, customer.deleteCustomer);
 
 export default Route;

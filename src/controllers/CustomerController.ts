@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import CustomerService from '../services/CustomerService';
 import TypesCustomer from '../@types/TypeCustomer';
 
-class ConstrollerCustommer {
+class CustommerConstroller {
   private serviceCustommer: CustomerService;
 
   constructor() {
@@ -19,6 +19,19 @@ class ConstrollerCustommer {
     const result = await this.serviceCustommer.createNewCustomer({ ...newCustomer } as TypesCustomer);
     return res.status(result.status).json(result.message);
   };
+
+  public updateCustomerById = async (req: Request, res: Response): Promise<Response | void> => {
+    const customer = req.body;
+    const { id } = req.params;
+    const result = await this.serviceCustommer.updateCustomerById(customer, id);
+    return res.status(result.status).json(result.message);
+  };
+
+  public deleteCustomer = async (req: Request, res: Response): Promise<Response | void> => {
+    const { email, cpf } = req.body;
+    const result = await this.serviceCustommer.deleteCustomer(email, cpf);
+    return res.status(result.status).json(result.message);
+  };
 }
 
-export default ConstrollerCustommer;
+export default CustommerConstroller;

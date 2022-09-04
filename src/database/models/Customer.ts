@@ -42,7 +42,6 @@ Customer.init(
     phoneNumber: {
       allowNull: false,
       type: DataTypes.STRING(14),
-      unique: true,
     },
     cpf: {
       allowNull: false,
