@@ -10,14 +10,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist",
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@middlewares/*": ["./src/models/*"],
-      "@services/*": ["./src/models/*"],
-      "@models/*": ["./src/models/*"],
-      "@views/*": ["./src/views/*"],
-      "@config/*": ["src/database/config/*"]
-    },
     "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "./src",

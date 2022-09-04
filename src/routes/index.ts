@@ -1,13 +1,10 @@
+import CustomerRoutes from '../routes/CustomerRoutes';
 import { Router } from 'express';
-import ControllerCustommer from '../controllers/ControllerCustomer';
-import 'dotenv/config';
 
-const Route = Router();
+const Routes = Router();
 
-const customer = new ControllerCustommer();
+const customerRoutes = CustomerRoutes;
 
-Route.get('/', customer.getAllCustommer);
+Routes.use(customerRoutes);
 
-Route.post('/register', customer.createCustomer);
-
-export default Route;
+export default Routes;
