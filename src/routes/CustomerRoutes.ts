@@ -1,21 +1,21 @@
 import 'dotenv/config';
 import { Router } from 'express';
-import CustommerConstroller from '../controllers/CustomerController';
+import CustomerConstroller from '../controllers/CustomerController';
 import {
   nameValidation,
   emailValidation,
   phoneNumberValidation,
   cpfValidation,
   addressValidation,
-} from '../middlewares/CustomerValidation';
+} from '../middlewares/CustomerValidations';
 
-const customer = new CustommerConstroller();
+const customer = new CustomerConstroller();
 
-const Route = Router();
+const CustomerRoute = Router();
 
-Route.get('/', customer.getAllCustommer);
+CustomerRoute.get('/', customer.getAllCustommer);
 
-Route.post(
+CustomerRoute.post(
   '/register',
   nameValidation,
   emailValidation,
@@ -25,7 +25,7 @@ Route.post(
   customer.createNewCustomer,
 );
 
-Route.patch(
+CustomerRoute.patch(
   '/customer/:id',
   nameValidation,
   emailValidation,
@@ -35,6 +35,6 @@ Route.patch(
   customer.updateCustomerById,
 );
 
-Route.delete('/customer/:id', emailValidation, cpfValidation, customer.deleteCustomer);
+CustomerRoute.delete('/customer/:id', emailValidation, cpfValidation, customer.deleteCustomer);
 
-export default Route;
+export default CustomerRoute;
