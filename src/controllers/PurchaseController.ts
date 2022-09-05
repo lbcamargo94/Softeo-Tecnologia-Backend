@@ -9,8 +9,14 @@ class PurchaseController {
     this.servicePurchase = new PuschaseService();
   }
 
-  public getAllCustommer = async (_req: Request, res: Response): Promise<Response | void> => {
+  public getAllPurchase = async (_req: Request, res: Response): Promise<Response | void> => {
     const result = await this.servicePurchase.getAllPurchase();
+    return res.status(result.status).json(result.message);
+  };
+
+  public getByCustomerId = async (req: Request, res: Response): Promise<Response | void> => {
+    const { id } = req.params;
+    const result = await this.servicePurchase.getByCustomerId(Number(id));
     return res.status(result.status).json(result.message);
   };
 

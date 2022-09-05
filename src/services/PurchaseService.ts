@@ -9,6 +9,11 @@ class PurchaseService {
     this.modelPurchase = Purchase;
   }
 
+  public async getByCustomerId(customerId: number) {
+    const result = await this.modelPurchase.findOne({ where: { customerId } });
+    return { status: 200, message: result };
+  }
+
   public async getByPurchaseId(id: number) {
     const result = await this.modelPurchase.findOne({ where: { id } });
     return { status: 200, message: result };
