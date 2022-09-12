@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { Router } from 'express';
-import PurchaseController from 'src/controllers/PurchaseController';
+import PurchaseController from '../controllers/PurchaseController';
 import {
   customerIdValidation,
   paymantTypeValidation,
@@ -12,14 +12,14 @@ const purchase = new PurchaseController();
 
 const PurchaseRoute = Router();
 
-PurchaseRoute.get('/customer/:id', purchase.getByCustomerId);
-
-PurchaseRoute.get('/customer/purchase/:id', purchase.getByCustomerId);
-
 PurchaseRoute.get('/purchase', purchase.getAllPurchase);
 
+PurchaseRoute.get('/customer/:id', purchase.getByPurchaseId);
+
+PurchaseRoute.get('/customer/purchase/:id', purchase.getPurchaseByCustomerId);
+
 PurchaseRoute.post(
-  '/purchase/create',
+  '/customer/:id',
   customerIdValidation,
   paymantTypeValidation,
   purchaseDateValidation,
@@ -28,3 +28,5 @@ PurchaseRoute.post(
 );
 
 PurchaseRoute.delete('/customer/purchase/:id', purchase.deletePurchase);
+
+export default PurchaseRoute;

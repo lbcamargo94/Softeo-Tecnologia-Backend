@@ -1,3 +1,4 @@
+import { NotFoundError } from './../helpers/ApiErrors';
 import { Request, Response, NextFunction } from 'express';
 import { BadRequestError } from '../helpers/ApiErrors';
 import CustomerService from '../services/CustomerService';
@@ -6,7 +7,10 @@ import validator from 'validator';
 export const customerIdValidation = async (req: Request, _res: Response, next: NextFunction) => {
   const { id } = req.params;
   const customerService = new CustomerService();
-  await customerService.getByCustomerId(Number(id));
+  const result = await customerService.getByCustomerId(Number(id));
+  if (!result) {
+    throw new NotFoundError('Customer does not exist');
+  }
   next();
 };
 

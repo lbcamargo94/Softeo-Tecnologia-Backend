@@ -1,4 +1,5 @@
 import Purchase from '../database/models/Purchase';
+import Customer from '../database/models/Customer';
 import TypesPurchase from '../@types/TypePurchase';
 import { NotFoundError } from '../helpers/ApiErrors';
 
@@ -9,8 +10,12 @@ class PurchaseService {
     this.modelPurchase = Purchase;
   }
 
-  public async getByCustomerId(customerId: number) {
-    const result = await this.modelPurchase.findOne({ where: { customerId } });
+  public async getPurchaseByCustomerId(customerId: number) {
+    const config = {
+      where: { customerId: customerId },
+      include: [{ model: Customer, as: 'id_customer', attributes: { exclude: ['id'] } }],
+    };
+    const result = await this.modelPurchase.findAll(config);
     return { status: 200, message: result };
   }
 
