@@ -14,9 +14,10 @@ class PurchaseController {
     return res.status(result.status).json(result.message);
   };
 
-  public getByCustomerId = async (req: Request, res: Response): Promise<Response | void> => {
+  public getPurchaseByCustomerId = async (req: Request, res: Response): Promise<Response | void> => {
     const { id } = req.params;
-    const result = await this.servicePurchase.getByCustomerId(Number(id));
+    const result = await this.servicePurchase.getPurchaseByCustomerId(Number(id));
+    // console.log('CONTROLLER_getPurchaseByCustomerId:', result);
     return res.status(result.status).json(result.message);
   };
 
@@ -28,7 +29,11 @@ class PurchaseController {
 
   public createNewPurchase = async (req: Request, res: Response): Promise<Response | void> => {
     const newPurchase = req.body;
-    const result = await this.servicePurchase.createNewPurchase({ ...newPurchase } as TypesPurchase);
+    const { id } = req.params;
+    const result = await this.servicePurchase.createNewPurchase({
+      ...newPurchase,
+      customerId: Number(id),
+    } as TypesPurchase);
     return res.status(result.status).json(result.message);
   };
 

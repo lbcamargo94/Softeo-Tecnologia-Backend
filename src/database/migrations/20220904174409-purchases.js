@@ -14,11 +14,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         field: 'customer_id',
-      },
-      treatmentId: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        field: 'treatment_id',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'customers',
+          key: 'id',
+        }
       },
       paymantType: {
         allowNull: false,

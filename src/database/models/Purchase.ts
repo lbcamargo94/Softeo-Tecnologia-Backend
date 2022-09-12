@@ -1,26 +1,16 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '.';
+import Customer from './Customer';
 // import Treatment from './Treatment';
 
 class Purchase extends Model {
-  private id: number;
-  customerId: string | number;
-  private paymantType: string;
-  private purchaseDate: Date;
-  private totalInstallments: number;
-  private totalValue: number;
-  public treatmentId: { id: number };
-
-  get customerData() {
-    return {
-      id: this.id,
-      treatmentId: this.treatmentId,
-      paymantType: this.paymantType,
-      purchaseDate: this.purchaseDate,
-      totalInstallments: this.totalInstallments,
-      totalValue: this.totalValue,
-    };
-  }
+  public id: number;
+  public customerId: number;
+  public paymantType: string;
+  public purchaseDate: Date;
+  public totalInstallments: number;
+  public totalValue: number;
+  public id_customer: { id: number };
 }
 
 Purchase.init(
@@ -36,15 +26,10 @@ Purchase.init(
       type: DataTypes.INTEGER,
       field: 'customer_id',
     },
-    treatmentId: {
-      allowNull: false,
-      type: DataTypes.INTEGER,
-      field: 'treatment_id',
-    },
     paymantType: {
       allowNull: false,
       type: DataTypes.STRING(50),
-      field: 'treatment_type',
+      field: 'paymant_type',
     },
     purchaseDate: {
       allowNull: false,
@@ -66,10 +51,12 @@ Purchase.init(
     underscored: true,
     sequelize: db,
     modelName: 'Purchase',
+    tableName: 'purchases',
     timestamps: false,
   },
 );
 
-export default Purchase;
-
 // Purchase.hasOne(Treatment, { foreignKey: 'treatment_id', as: 'id' });
+Purchase.belongsTo(Customer, { foreignKey: 'customerId', as: 'id_customer' });
+
+export default Purchase;

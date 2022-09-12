@@ -2,23 +2,12 @@ import { DataTypes, Model } from 'sequelize';
 import db from '.';
 
 class Customer extends Model {
-  private id: number;
-  private fullName: string;
-  private email: string;
-  private phoneNumber: string;
-  private cpf: string;
-  private address: string;
-
-  get customerData() {
-    return {
-      id: this.id,
-      fullName: this.fullName,
-      email: this.email,
-      phoneNumber: this.phoneNumber,
-      cpf: this.cpf,
-      address: this.address,
-    };
-  }
+  public id: number;
+  public fullName: string;
+  public email: string;
+  public phoneNumber: string;
+  public cpf: string;
+  public address: string;
 }
 
 Customer.init(
