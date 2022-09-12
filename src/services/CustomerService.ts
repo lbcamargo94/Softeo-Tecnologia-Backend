@@ -15,6 +15,14 @@ class CustomerService {
     return { status: 200, message: result };
   }
 
+  public async getByCustomerId(id: number) {
+    const result = await this.modelCustomer.findOne({ where: { id } });
+    if (!result) {
+      throw new NotFoundError('Customer does not exists');
+    }
+    return { status: 200, message: result };
+  }
+
   public async createNewCustomer(newCustomer: TypesCustomer) {
     const { email, cpf } = newCustomer;
     const customer = await this.modelCustomer.findOne({
