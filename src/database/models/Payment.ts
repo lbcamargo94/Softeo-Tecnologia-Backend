@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '.';
-// import Purchase from './Purchase';
+import Purchase from './Purchase';
 
 class Payment extends Model {
   public id: number;
@@ -37,11 +37,14 @@ Payment.init(
     },
     paymentDate: {
       allowNull: true,
+      autoIncrement: false,
+      defaultValue: '',
       type: DataTypes.DATE,
-      field: 'paymantdate',
+      field: 'paymant_date',
     },
     dueDate: {
       allowNull: false,
+      autoIncrement: false,
       type: DataTypes.DATE,
       field: 'due_date',
     },
@@ -60,5 +63,6 @@ Payment.init(
 );
 
 Payment.belongsTo(Purchase, { foreignKey: 'purchaseId', as: 'id_purchase' });
+Payment.belongsTo(Purchase, { foreignKey: 'paymentType', as: 'type_payment' });
 
 export default Payment;
