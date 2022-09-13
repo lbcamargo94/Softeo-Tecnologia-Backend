@@ -6,7 +6,7 @@
   "author": "Lucas Camargo <lb.camargo94@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "build": "tsc --build tsconfig.json",
     "predev": "npm run build",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",

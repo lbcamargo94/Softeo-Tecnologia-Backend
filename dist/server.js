@@ -1,7 +1,8 @@
-"use strict";var _app = require('./app');
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const app_1 = require("./app");
 const PORT = process.env.PORT || 3001;
-
-_app.app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+app_1.app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
+//# sourceMappingURL=server.js.map
