@@ -3,7 +3,7 @@ import { Router } from 'express';
 import PurchaseController from '../controllers/PurchaseController';
 import {
   customerIdValidation,
-  paymantTypeValidation,
+  paymentTypeValidation,
   purchaseDateValidation,
   totalInstallmentsValidation,
 } from '../middlewares/PurchaseValidations';
@@ -14,19 +14,19 @@ const PurchaseRoute = Router();
 
 PurchaseRoute.get('/purchase', purchase.getAllPurchase);
 
-PurchaseRoute.get('/customer/:id', purchase.getByPurchaseId);
+PurchaseRoute.get('/purchase/:id', purchase.getByPurchaseId);
 
-PurchaseRoute.get('/customer/purchase/:id', purchase.getPurchaseByCustomerId);
+PurchaseRoute.get('/customer/:id', purchase.getPurchaseByCustomerId);
 
 PurchaseRoute.post(
-  '/customer/:id',
+  '/register/purchase',
   customerIdValidation,
-  paymantTypeValidation,
+  paymentTypeValidation,
   purchaseDateValidation,
   totalInstallmentsValidation,
   purchase.createNewPurchase,
 );
 
-PurchaseRoute.delete('/customer/purchase/:id', purchase.deletePurchase);
+PurchaseRoute.delete('/purchase/:id', purchase.deletePurchase);
 
 export default PurchaseRoute;

@@ -8,6 +8,7 @@ class Customer extends Model {
   public phoneNumber: string;
   public cpf: string;
   public address: string;
+  public customer_purchases: { id: number };
 }
 
 Customer.init(

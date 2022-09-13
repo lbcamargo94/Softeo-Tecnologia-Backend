@@ -12,14 +12,14 @@ module.exports = {
       },
       purchaseId: {
         allowNull: false,
-        field: "purchase_id",
-        onDelete: "CASCADE",
-        onUpdate: "CASCADE",
-        references: {
-          model: "purchase",
-          key: "id",
-        },
         type: Sequelize.INTEGER,
+        field: 'purchase_id',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'purchases',
+          key: 'id',
+        },
       },
       paymantValue: {
         allowNull: false,
@@ -27,7 +27,7 @@ module.exports = {
       },
       paymantType: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING(50),
       },
       paymantDate: {
         allowNull: false,
@@ -48,5 +48,5 @@ module.exports = {
   async down(queryInterface)
   {
     await queryInterface.dropTable('payments');
-  }
+  },
 };
