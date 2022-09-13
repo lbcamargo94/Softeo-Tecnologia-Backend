@@ -5,23 +5,23 @@ import CustomerService from '../services/CustomerService';
 import validator from 'validator';
 
 export const customerIdValidation = async (req: Request, _res: Response, next: NextFunction) => {
-  const { id } = req.params;
+  const { customerId } = req.body;
   const customerService = new CustomerService();
-  const result = await customerService.getByCustomerId(Number(id));
+  const result = await customerService.getByCustomerId(Number(customerId));
   if (!result) {
     throw new NotFoundError('Customer does not exist');
   }
   next();
 };
 
-export const paymantTypeValidation = async (req: Request, _res: Response, next: NextFunction) => {
-  const { paymantType } = req.body;
-  const paymantTypes = ['à vista', 'parcelado'];
-  if (!paymantType) {
-    throw new BadRequestError('Paymant type are required');
+export const paymentTypeValidation = async (req: Request, _res: Response, next: NextFunction) => {
+  const { paymentType } = req.body;
+  const paymentTypes = ['à vista', 'parcelado'];
+  if (!paymentType) {
+    throw new BadRequestError('Payment type are required');
   }
-  if (!paymantTypes.includes(paymantType)) {
-    throw new BadRequestError(`Paymant type must be one of ${paymantTypes}`);
+  if (!paymentTypes.includes(paymentType)) {
+    throw new BadRequestError(`Payment type must be one of ${paymentType}`);
   }
   next();
 };
@@ -39,8 +39,8 @@ export const purchaseDateValidation = async (req: Request, _res: Response, next:
 };
 
 export const totalInstallmentsValidation = async (req: Request, _res: Response, next: NextFunction) => {
-  const { paymantType, totalInstallments } = req.body;
-  const paymentInInstallments = paymantType == 'parcelado';
+  const { paymentType, totalInstallments } = req.body;
+  const paymentInInstallments = paymentType == 'parcelado';
   if (!paymentInInstallments && totalInstallments > 0) {
     throw new BadRequestError('Installments value is invalid');
   }

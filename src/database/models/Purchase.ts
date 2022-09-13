@@ -6,11 +6,12 @@ import Customer from './Customer';
 class Purchase extends Model {
   public id: number;
   public customerId: number;
-  public paymantType: string;
+  public paymentType: string;
   public purchaseDate: Date;
   public totalInstallments: number;
   public totalValue: number;
   public id_customer: { id: number };
+  // public id_customer: { id: number };
 }
 
 Purchase.init(
@@ -26,7 +27,12 @@ Purchase.init(
       type: DataTypes.INTEGER,
       field: 'customer_id',
     },
-    paymantType: {
+    // treatmentId: {
+    //   allowNull: false,
+    //   type: DataTypes.INTEGER,
+    //   field: 'treatment_id',
+    // },
+    paymentType: {
       allowNull: false,
       type: DataTypes.STRING(50),
       field: 'paymant_type',
@@ -56,7 +62,7 @@ Purchase.init(
   },
 );
 
-// Purchase.hasOne(Treatment, { foreignKey: 'treatment_id', as: 'id' });
+// Purchase.belongsTo(Treatment, { foreignKey: 'treatmentId', as: 'id_treatment' });
 Purchase.belongsTo(Customer, { foreignKey: 'customerId', as: 'id_customer' });
 
 export default Purchase;
