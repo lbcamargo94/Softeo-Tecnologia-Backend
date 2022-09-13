@@ -13,7 +13,7 @@
     "eslint": "eslint 'src/**/*.ts'",
     "prettier": "prettier 'src/**/*.ts'",
     "start": "node server.js",
-    "prestart": "npm run build",
+    "prestart": "npm install && npm run build",
     "test": "jest"
   },
   "devDependencies": {
