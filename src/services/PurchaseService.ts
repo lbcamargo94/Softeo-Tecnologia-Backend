@@ -1,12 +1,15 @@
 import Purchase from '../database/models/Purchase';
 import TypesPurchase from '../@types/TypePurchase';
 import { NotFoundError } from '../helpers/ApiErrors';
+import Payment from '../database/models/Payment';
 
 class PurchaseService {
   private modelPurchase;
+  private modelPayment;
 
   constructor() {
     this.modelPurchase = Purchase;
+    this.modelPayment = Payment;
   }
 
   public async getPurchaseByCustomerId(customerId: number) {
