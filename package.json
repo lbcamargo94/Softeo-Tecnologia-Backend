@@ -12,7 +12,7 @@
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
     "eslint": "eslint 'src/**/*.ts'",
     "prettier": "prettier 'src/**/*.ts'",
-    "start": "node server.js",
+    "start": "node ./dist/server.js",
     "prestart": "npm install && npm run build",
     "test": "jest"
   },
