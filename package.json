@@ -6,14 +6,13 @@
   "author": "Lucas Camargo <lb.camargo94@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "npx tsc --build tsconfig.json",
+    "build": "tsc",
     "predev": "npm run build",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
     "eslint": "eslint 'src/**/*.ts'",
     "prettier": "prettier 'src/**/*.ts'",
     "start": "node ./dist/server.js",
-    "prestart": "npm install && npm run build && npm run db:reset",
     "test": "jest"
   },
   "devDependencies": {
