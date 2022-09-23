@@ -21,7 +21,6 @@ class PurchaseController {
   public getPurchaseByCustomerId = async (req: Request, res: Response): Promise<Response | void> => {
     try {
       const { id } = req.params;
-      console.log('CONTROLLER', id);
       const result = await this.servicePurchase.getPurchaseByCustomerId(Number(id));
       return res.status(result.status).json(result.message);
     } catch (error) {

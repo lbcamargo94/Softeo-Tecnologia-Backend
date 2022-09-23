@@ -15,6 +15,8 @@ const CustomerRoute = Router();
 
 CustomerRoute.get('/', customer.getAllCustommer);
 
+CustomerRoute.get('/customer/:id', customer.getByCustomerId);
+
 CustomerRoute.post(
   '/register',
   nameValidation,

@@ -18,6 +18,16 @@ class CustommerConstroller {
     }
   };
 
+  public getByCustomerId = async (req: Request, res: Response): Promise<Response | void> => {
+    try {
+      const { id } = req.params;
+      const result = await this.serviceCustommer.getByCustomerId(Number(id));
+      return res.status(result.status).json(result.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   public createNewCustomer = async (req: Request, res: Response): Promise<Response | void> => {
     try {
       const newCustomer = req.body;
