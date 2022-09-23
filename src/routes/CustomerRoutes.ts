@@ -7,7 +7,7 @@ import {
   phoneNumberValidation,
   cpfValidation,
   addressValidation,
-} from '../middlewares/CustomerValidations';
+} from '../middlewares/CustomerValidation';
 
 const customer = new CustomerConstroller();
 
